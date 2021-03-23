@@ -263,3 +263,7 @@ html {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+html {
+  font: 125% "Ubuntu", sans-serif;
+}
