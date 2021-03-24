@@ -1,0 +1,29 @@
+header {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  .wrapper {
+    height: 50%;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  h1 {
+    // align h1 text with smaller navigation text
+    margin-left: 9vw;
+  }
+
+  ul {
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  a {
+    text-decoration: none;
+    color: unset;
+  }
+}
