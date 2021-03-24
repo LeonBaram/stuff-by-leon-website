@@ -274,6 +274,10 @@ ul {
   list-style: none;
 }
 
+a {
+  color: unset;
+}
+
 /* raleway-regular - latin */
 @font-face {
   font-family: "Raleway";
@@ -319,4 +323,16 @@ header ul {
 header a {
   text-decoration: none;
   color: unset;
+}
+
+main section {
+  height: 100vh;
+}
+main section .wrapper {
+  height: 100%;
+}
+
+footer .contact-info {
+  display: flex;
+  justify-content: space-evenly;
 }
