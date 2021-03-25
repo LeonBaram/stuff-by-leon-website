@@ -11,7 +11,7 @@
   <body>
     <header>
       <div class="wrapper">
-        <h1>Hi. I'm Leon.</h1>
+        <h1 tabindex="0">Hi. I'm Leon.</h1>
         <nav>
           <ul>
             <li><a href="#projects">My Stuff</a></li>
@@ -23,30 +23,17 @@
       <!-- /wrapper -->
     </header>
     <main>
-      <section id="about" class="about">
-        <!-- wrapper -->
-        <div class="wrapper">
-          <h2>A Little Bit About Me</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            aut architecto culpa impedit, illo dolorum id sint, nam possimus et
-            asperiores iste eaque nostrum iusto molestias ad cupiditate quam
-            iure quas incidunt. Ducimus enim quo dolores aperiam voluptate,
-            minus, reiciendis optio odit dicta, totam id nemo incidunt ex
-            deleniti a?
-          </p>
-        </div>
-        <!-- /wrapper -->
-      </section>
       <section id="projects" class="projects">
         <!-- wrapper -->
         <div class="wrapper">
-          <h2>Projects</h2>
+          <h2 tabindex="0">Projects</h2>
           <ul>
-            <li class="nextbinge">
+            <li class="project nextbinge">
               <article>
-                <h3>nextBinge</h3>
-                <img src="" alt="preview of nextBinge website" />
+                <h3 tabindex="0">nextBinge</h3>
+                <div class="img-container">
+                  <img src="" alt="preview of nextBinge website" />
+                </div>
                 <a href="#">
                   <p>live site</p>
                 </a>
@@ -55,10 +42,12 @@
                 </a>
               </article>
             </li>
-            <li class="murderhobo">
+            <li class="project murderhobo">
               <article>
-                <h3>murderHobo</h3>
-                <img src="" alt="preview of murderHobo website" />
+                <h3 tabindex="0">murderHobo</h3>
+                <div class="img-container">
+                  <img src="" alt="preview of murderHobo website" />
+                </div>
                 <a href="#">
                   <p>live site</p>
                 </a>
@@ -67,10 +56,12 @@
                 </a>
               </article>
             </li>
-            <li class="gateway">
+            <li class="project gateway">
               <article>
-                <h3>Gateway</h3>
-                <img src="" alt="preview of Gateway website" />
+                <h3 tabindex="0">Gateway</h3>
+                <div class="img-container">
+                  <img src="" alt="preview of Gateway website" />
+                </div>
                 <a href="#">
                   <p>live site</p>
                 </a>
@@ -80,6 +71,36 @@
               </article>
             </li>
           </ul>
+        </div>
+        <!-- /wrapper -->
+      </section>
+      <section id="about" class="about">
+        <!-- wrapper -->
+        <div class="wrapper">
+          <h2 tabindex="0">A Little Bit About Me</h2>
+          <p class="part1" tabindex="0">
+            I'm a big believer in function over form. I have a passion for
+            creating beautiful, minimalist products that place the needs of the
+            user first. To me, that means making my applications responsive,
+            accessible, and performant, using the best modern technologies that
+            fit the job.
+          </p>
+          <button class="more" tabindex="0">more +</button>
+          <p class="part2" tabindex="0">
+            My time in the food service industry has acclimated me to fast-paced
+            and customer-focused work environments. It also taught me the value
+            of teamwork, and greatly contributed to my confidence in
+            communicating, collaborating, and problem-solving with others.
+          </p>
+          <button class="more" tabindex="0">more +</button>
+          <p class="part3" tabindex="0">
+            I will never stop learning, and I will never stop helping others
+            learn. The best way to understand something is to try to explain it
+            to someone else; this has always been my learning style. I am not
+            afraid to ask for help, and I never turn down anyone who asks for
+            it. I firmly believe that lifting each other up is the truest path
+            to success.
+          </p>
         </div>
         <!-- /wrapper -->
       </section>

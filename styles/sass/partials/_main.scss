@@ -5,5 +5,19 @@ main {
     .wrapper {
       height: 100%;
     }
+
+    &.projects {
+      
+      h2 {
+        width: max-content;
+        margin: 0 auto;
+        @include highlight;
+      }
+
+      ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+    }
   }
 }

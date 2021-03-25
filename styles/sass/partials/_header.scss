@@ -14,6 +14,10 @@ header {
   h1 {
     // align h1 text with smaller navigation text
     margin-left: 9vw;
+    width: max-content;
+
+    @include highlight;
+    cursor: pointer;
   }
 
   ul {
@@ -25,5 +29,8 @@ header {
   a {
     text-decoration: none;
     color: unset;
+    padding: 3px;
+
+    @include highlight;
   }
 }

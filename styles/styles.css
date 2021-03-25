@@ -264,6 +264,10 @@ html {
   overflow: hidden;
 }
 
+* {
+  background: white;
+}
+
 .wrapper {
   max-width: 1200px;
   width: 90%;
@@ -276,6 +280,16 @@ ul {
 
 a {
   color: unset;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  background: lightgrey;
+  cursor: pointer;
+}
+button:hover, button:active {
+  background: grey;
 }
 
 /* raleway-regular - latin */
@@ -300,6 +314,10 @@ h1 {
   font-size: 6.4rem;
 }
 
+h2 {
+  font-size: 3.2rem;
+}
+
 header {
   height: 100vh;
   display: flex;
@@ -314,6 +332,13 @@ header .wrapper {
 }
 header h1 {
   margin-left: 9vw;
+  width: max-content;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+header h1:hover, header h1:active, header h1:focus {
+  color: white;
+  background: #274472;
 }
 header ul {
   padding: 0;
@@ -323,6 +348,12 @@ header ul {
 header a {
   text-decoration: none;
   color: unset;
+  padding: 3px;
+  transition: all 0.5s ease-in-out;
+}
+header a:hover, header a:active, header a:focus {
+  color: white;
+  background: #274472;
 }
 
 main section {
@@ -330,6 +361,19 @@ main section {
 }
 main section .wrapper {
   height: 100%;
+}
+main section.projects h2 {
+  width: max-content;
+  margin: 0 auto;
+  transition: all 0.5s ease-in-out;
+}
+main section.projects h2:hover, main section.projects h2:active, main section.projects h2:focus {
+  color: white;
+  background: #274472;
+}
+main section.projects ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 footer .contact-info {

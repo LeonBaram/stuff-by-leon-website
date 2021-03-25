@@ -1,3 +1,10 @@
+// colors
+$blue: #274472;
+
+* {
+  background: white;
+}
+
 .wrapper {
   max-width: 1200px;
   width: 90%;
@@ -10,4 +17,28 @@ ul {
 
 a {
   color: unset;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  background: lightgrey;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    background: grey;
+  }
+}
+
+@mixin highlight {
+
+  transition: all 0.5s ease-in-out;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: white;
+    background: $blue;
+  }
 }
