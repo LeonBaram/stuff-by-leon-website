@@ -6,17 +6,30 @@ main {
       height: 100%;
     }
 
-    &.projects {
-      
-      h2 {
-        width: max-content;
-        margin: 0 auto;
-        @include highlight;
+    h2 {
+      width: max-content;
+      margin: 0 auto;
+      @include highlight;
+    }
+
+    &.skills {
+      ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(50px, 150px));
+        gap: 50px;
       }
 
+      li p {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    &.projects {
       ul {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
       }
     }
   }

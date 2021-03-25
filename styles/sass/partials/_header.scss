@@ -5,25 +5,27 @@ header {
 
   .wrapper {
     height: 50%;
-    width: 75%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
   }
 
   h1 {
-    // align h1 text with smaller navigation text
-    margin-left: 9vw;
     width: max-content;
-
     @include highlight;
     cursor: pointer;
+  }
+
+  nav {
+    overflow: auto;
   }
 
   ul {
     padding: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    position: sticky;
   }
 
   a {
