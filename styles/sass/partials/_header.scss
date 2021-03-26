@@ -3,6 +3,13 @@ header {
   display: flex;
   align-items: center;
 
+  .img-container {
+    position: fixed;
+    top: 2%;
+    left: 2%;
+    width: 5%;
+  }
+
   .wrapper {
     height: 50%;
     width: 50%;
