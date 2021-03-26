@@ -1,10 +1,19 @@
-const h1 = document.querySelector('h1');
+const selectors = [
+  'h1',
+  'nav ul',
+  'nav',
+];
 
-h1.focus();
+const cache = {};
 
-const navlist = document.querySelector('nav ul');
+// populate cache from array
+selectors.forEach(sel => cache[sel] = document.querySelector(sel));
 
-navlist.addEventListener('click', (event) => {
+cache['h1'].focus({ preventScroll: true });
+
+// handle navigation; replace anchor jumps with smooth scrolling
+// anchors are there for semantic correctness and non-JS users
+cache['nav ul'].addEventListener('click', (event) => {
   const { target } = event;
   if (target.tagName === 'A') {
     event.preventDefault();
@@ -13,7 +22,10 @@ navlist.addEventListener('click', (event) => {
     const id = target.hash.slice(1);
 
     const destination = document.getElementById(id);
+    const h2 = document.querySelector(`#${id} h2`);
+    h2.focus();
     destination.scrollIntoView({ behavior: 'smooth' });
-    console.log(destination);
   }
 });
+
+// nav scrolling

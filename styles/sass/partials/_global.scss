@@ -2,10 +2,27 @@
 $blue: #274472;
 
 * {
-  background: white;
+  scroll-behavior: smooth;
+}
+
+:not(.img-container a) {
+  transition: all 0.5s ease-in-out;
+  &:focus {
+    color: white;
+    background: $blue;
+  }
+}
+
+:not(.img-container) a {
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    color: white;
+    background: $blue;
+  }
 }
 
 body {
+  background: white;
   overflow-x: hidden;
 }
 
@@ -15,12 +32,23 @@ body {
   margin: 0 auto;
 }
 
+.img-container {
+  a {
+    outline: none;
+  }
+  img {
+    width: 100%;
+  }
+}
+
 ul {
   list-style: none;
+  padding-left: 0;
 }
 
 a {
   color: unset;
+  padding: 3px;
 }
 
 button {
@@ -32,17 +60,5 @@ button {
   &:hover,
   &:active {
     background: grey;
-  }
-}
-
-@mixin highlight {
-
-  transition: all 0.5s ease-in-out;
-
-  &:hover,
-  &:active,
-  &:focus {
-    color: white;
-    background: $blue;
   }
 }

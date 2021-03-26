@@ -265,10 +265,27 @@ html {
 }
 
 * {
-  background: white;
+  scroll-behavior: smooth;
+}
+
+:not(.img-container a) {
+  transition: all 0.5s ease-in-out;
+}
+:not(.img-container a):focus {
+  color: white;
+  background: #274472;
+}
+
+:not(.img-container) a {
+  transition: all 0.5s ease-in-out;
+}
+:not(.img-container) a:hover {
+  color: white;
+  background: #274472;
 }
 
 body {
+  background: white;
   overflow-x: hidden;
 }
 
@@ -278,12 +295,21 @@ body {
   margin: 0 auto;
 }
 
+.img-container a {
+  outline: none;
+}
+.img-container img {
+  width: 100%;
+}
+
 ul {
   list-style: none;
+  padding-left: 0;
 }
 
 a {
   color: unset;
+  padding: 3px;
 }
 
 button {
@@ -339,35 +365,24 @@ header .wrapper {
 }
 header h1 {
   width: max-content;
-  transition: all 0.5s ease-in-out;
-  cursor: pointer;
 }
-header h1:hover, header h1:active, header h1:focus {
-  color: white;
-  background: #274472;
-}
-header nav {
-  overflow: auto;
+header nav.escaped-parent {
+  position: fixed;
+  top: 0;
+  width: 50%;
 }
 header ul {
   padding: 0;
   display: flex;
   justify-content: space-between;
-  position: sticky;
 }
 header a {
   text-decoration: none;
-  color: unset;
-  padding: 3px;
-  transition: all 0.5s ease-in-out;
-}
-header a:hover, header a:active, header a:focus {
-  color: white;
-  background: #274472;
 }
 
 main section {
-  height: 100vh;
+  min-height: 100vh;
+  padding-top: 20px;
 }
 main section .wrapper {
   height: 100%;
@@ -375,16 +390,13 @@ main section .wrapper {
 main section h2 {
   width: max-content;
   margin: 0 auto;
-  transition: all 0.5s ease-in-out;
-}
-main section h2:hover, main section h2:active, main section h2:focus {
-  color: white;
-  background: #274472;
 }
 main section.skills ul {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(50px, 150px));
+  grid-template-columns: repeat(3, minmax(50px, 100px));
   gap: 50px;
+  width: max-content;
+  margin: 20px auto;
 }
 main section.skills li p {
   width: 100%;
@@ -393,7 +405,37 @@ main section.skills li p {
 main section.projects ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  gap: 50px;
+}
+main section.projects li article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+main section.projects li article img:hover {
+  transform: scale(1.05);
+}
+main section.projects li article .links {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+main section.projects li article a p {
+  margin: 0;
+}
+main section.about {
+  display: flex;
+  align-items: center;
+}
+main section.about .wrapper {
+  position: relative;
+  top: -30px;
+}
+main section.about p {
+  width: 60%;
+  margin: 30px auto;
 }
 
 footer .contact {
