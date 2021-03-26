@@ -1,3 +1,25 @@
+nav {
+
+  position: static;
+
+  &.sticky {
+    position: fixed;
+    top: 0;
+    width: 50%;
+    z-index: 10;
+  }
+
+  ul {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
 header {
   height: 100vh;
   display: flex;
@@ -20,21 +42,5 @@ header {
 
   h1 {
     width: max-content;
-  }
-
-  nav.escaped-parent {
-    position: fixed;
-    top: 0;
-    width: 50%;
-  }
-
-  ul {
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  a {
-    text-decoration: none;
   }
 }

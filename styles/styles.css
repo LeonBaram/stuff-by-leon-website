@@ -351,6 +351,24 @@ p {
   font-family: "Roboto";
 }
 
+nav {
+  position: static;
+}
+nav.sticky {
+  position: fixed;
+  top: 0;
+  width: 50%;
+  z-index: 10;
+}
+nav ul {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+nav a {
+  text-decoration: none;
+}
+
 header {
   height: 100vh;
   display: flex;
@@ -371,19 +389,6 @@ header .wrapper {
 }
 header h1 {
   width: max-content;
-}
-header nav.escaped-parent {
-  position: fixed;
-  top: 0;
-  width: 50%;
-}
-header ul {
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-}
-header a {
-  text-decoration: none;
 }
 
 main section {
