@@ -1,6 +1,13 @@
-footer .contact {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 0;
-  padding-bottom: 20vh;
+.contact {
+  h2 {
+    width: max-content;
+    margin: 0 auto;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 0;
+    padding-bottom: 20vh;
+  }
 }

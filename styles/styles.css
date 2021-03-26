@@ -449,7 +449,11 @@ main section.about p {
   margin: 30px auto;
 }
 
-footer .contact {
+.contact h2 {
+  width: max-content;
+  margin: 0 auto;
+}
+.contact ul {
   display: flex;
   justify-content: space-between;
   padding-left: 0;
