@@ -11,7 +11,7 @@ const cache = {};
 // populate cache from array
 selectors.forEach(sel => cache[sel] = document.querySelector(sel));
 
-// get window height from root htmlm 'clientHeight' property
+// get window height from root html 'clientHeight' property
 const { clientHeight } = cache['html'];
 
 cache['h1'].focus({ preventScroll: true });
