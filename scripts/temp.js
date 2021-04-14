@@ -9,7 +9,7 @@ when an element is focused:
 
 
 */
-const selectors = ["html", "body", "h1", "nav", "nav ul"];
+const selectors = ['html', 'body', 'h1', 'nav', 'nav ul'];
 
 const cache = {};
 
@@ -17,17 +17,17 @@ const cache = {};
 selectors.forEach((sel) => (cache[sel] = document.querySelector(sel)));
 
 // get window height from root html 'clientHeight' property
-const { clientHeight } = cache["html"];
+const { clientHeight } = cache['html'];
 
 cache.h1.focus();
 window.setTimeout(() => cache.h1.blur(), 1000);
 
 // handle navigation; replace anchor jumps with smooth scrolling
 // anchors are there for semantic correctness and non-JS users
-cache["nav ul"].addEventListener("click", (event) => {
+cache['nav ul'].addEventListener('click', (event) => {
   const { target } = event;
 
-  if (target.tagName === "A") {
+  if (target.tagName === 'A') {
     event.preventDefault();
 
     // remove leading '#'
@@ -52,20 +52,20 @@ window.onscroll = () => {
   const belowNav = window.scrollY > NAV_SCROLL_Y;
 
   // is the nav currently sticky?
-  const sticky = nav.className === "sticky";
+  const sticky = nav.className === 'sticky';
 
   if (!belowNav && sticky) {
-    nav.className = "";
+    nav.className = '';
   }
 
   if (belowNav && !sticky) {
-    nav.className = "sticky";
+    nav.className = 'sticky';
   }
 };
 
 // custom replacement of tabbing behaviour
 // if element being tabbed to is out of bounds, scroll to it instead of default jumping behaviour
-cache["body"].addEventListener("focusin", (event) => {
+cache['body'].addEventListener('focusin', (event) => {
   const { target } = event;
   // const { y } = target.getBoundingClientRect();
 
@@ -85,10 +85,15 @@ cache["body"].addEventListener("focusin", (event) => {
   //   });
   // }
 
-  target.scrollIntoView({ behviour: "smooth" });
+  target.scrollIntoView({ behviour: 'smooth' });
 });
 
-
+/**
+ * @function inView
+ * calculates whether an element is within bounds
+ * @param {Element} element an element on the page
+ * @returns true if element is within vertical screen bounds
+ */
 const inView = (element) => {
   const { top, bottom } = element.getBoundingClientRect();
 
@@ -98,15 +103,14 @@ const inView = (element) => {
   return upper <= top && bottom <= lower;
 };
 
-// custom implementation of Element.scrollIntoViewIfNeeded()
-// https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoViewIfNeeded
-
 /**
  * @function scrollIntoViewIfNeeded
- * scrolls to element if it isn't in view
+ * custom implementation of Element.scrollIntoViewIfNeeded()
+ * https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoViewIfNeeded
  * @param {Element} element an element on the page
  */
-const scrollIntoViewIfNeeded = (element) => 
-  inView(element) || element.scrollIntoView({ behviour: "smooth" });
-
-
+function scrollIntoViewIfNeeded(element) {
+  if (!inView(element)) {
+    element.scrollIntoView({ behviour: 'smooth' });
+  }
+}

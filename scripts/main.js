@@ -1,55 +1,81 @@
-const selectors = ['html', 'body', 'h1', 'nav', 'nav ul'];
+const selectors = [
+  'html',
+  'body',
+  'h1',
+  'nav',
+  'nav ul',
+  'header',
+  'section.skills',
+  'section.projects',
+  'section.about',
+  'footer',
+];
 
 const cache = {};
 
 // populate cache from array
 selectors.forEach((sel) => (cache[sel] = document.querySelector(sel)));
 
-// handle focusing; replace focus jumps with smooth scrolling
-cache.body.addEventListener('focusin', (event) => {
-  // event.preventDefault();
-  scrollIntoViewIfNeeded(event.target);
-});
+// explicit subset of selectors
+// used for "discrete scrolling" functionality
+const sections = [
+  'header',
+  'section.skills',
+  'section.projects',
+  'section.about',
+  'footer',
+];
 
-// handle navigation; replace anchor jumps with smooth scrolling
-// anchors are there for semantic correctness and non-JS users
+_SECTION_INDEX = 0;
+
+const goToSection = (n) => {
+  if (0 <= n && n < sections.length) {
+    _SECTION_INDEX = n;
+    cache[sections[_SECTION_INDEX]].scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
+const nextSection = () => goToSection(_SECTION_INDEX + 1);
+
+const prevSection = () => goToSection(_SECTION_INDEX - 1);
+
+// handle navigation; replace anchor jumps with scrolling
+// (anchors are there for semantic correctness and non-JS users)
 cache['nav ul'].addEventListener('click', (event) => {
   const { target } = event;
 
   if (target.tagName === 'A') {
     event.preventDefault();
 
-    const id = target.hash.slice(1);
+    const { hash } = target;
 
-    const section = document.getElementById(id);
-    scrollIntoViewIfNeeded(section);
+    let sectionIndex;
 
-    const h2 = document.querySelector(`#${id} h2`);
-    h2.focus({ preventScroll: true });
+    switch (hash) {
+      case '#skills':
+        sectionIndex = 1;
+        break;
+      case '#projects':
+        sectionIndex = 2;
+        break;
+      case '#about':
+        sectionIndex = 3;
+        break;
+      case '#contact':
+        sectionIndex = 4;
+        break;
+    }
+
+    goToSection(sectionIndex);
   }
 });
 
-/**
- * @function isInView
- * @param {Element} element a DOM element
- * @returns true if the given element is fully visible on the screen
- */
-function isInView(element) {
-  const { top, bottom } = element.getBoundingClientRect();
+// onwheel is a built-in event handler for user mouse-wheel scrolling
+window.onwheel = (event) => {
+  // deltaY is a number representing how far down the user scrolled
+  // negative numbers mean the user scrolled up
+  const { deltaY } = event;
 
-  const upper = window.scrollY;
-  const lower = window.scrollY + window.innerHeight;
-
-  return upper <= top && bottom <= lower;
-}
-
-/**
- * @function scrollIntoViewIfNeeded
- * calculates whether an element is in view (see isInView), and scrolls to it if it isn't
- * @param {Element} element a DOM element
- */
-function scrollIntoViewIfNeeded(element) {
-  if (!isInView(element)) {
-    element.scrollIntoView({ behaviour: 'smooth' });
-  }
-}
+  if (deltaY > 0) nextSection();
+  if (deltaY < 0) prevSection();
+};
