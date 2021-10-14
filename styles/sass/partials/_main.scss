@@ -41,10 +41,11 @@ main {
         justify-content: space-around;
         align-items: center;
 
-        transition: transform 0.3s ease-in-out;
-
-        img:hover {
-          transform: scale(1.05);
+        img {
+          transition: transform 0.3s ease-in-out;
+          &:hover {
+            transform: scale(1.05);
+          }
         }
 
         .links {

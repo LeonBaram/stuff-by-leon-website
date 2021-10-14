@@ -5,15 +5,7 @@ $blue: #274472;
   scroll-behavior: smooth;
 }
 
-:not(.img-container a) {
-  transition: all 0.5s ease-in-out;
-  &:focus {
-    color: white;
-    background: $blue;
-  }
-}
-
-:not(.img-container) a {
+a {
   transition: all 0.5s ease-in-out;
   &:hover {
     color: white;
@@ -35,6 +27,7 @@ body {
 .img-container {
   a {
     outline: none;
+    background: none;
   }
   img {
     width: 100%;
