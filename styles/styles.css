@@ -446,7 +446,7 @@ main section h2 {
 main section.skills ul {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(50px, 100px))[4];
+  -ms-grid-columns: (minmax(50px, 100px));
       grid-template-columns: repeat(4, minmax(50px, 100px));
   gap: 50px;
   width: -webkit-max-content;
